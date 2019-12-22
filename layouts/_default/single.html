@@ -15,6 +15,20 @@
     {{ end }}
   </div>
 
+  {{ with .Params.Cover }}
+  <img src="{{ . | absURL }}" class="post-cover" />
+  {{ end }}
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <hr class="separator">
+
+  <div>Anything you would have done differently? Anything you learned for the first time? Let's talk on Twitter <a href="https://twitter.com/nightshiftc">@nightshiftc</a> :)</div>
+
+  <hr class="separator">
+
   {{ if .Params.tags }}
   <span class="post-tags">
     {{ range .Params.tags }}
@@ -23,13 +37,6 @@
   </span>
   {{ end }}
 
-  {{ with .Params.Cover }}
-  <img src="{{ . | absURL }}" class="post-cover" />
-  {{ end }}
-
-  <div class="post-content">
-    {{ .Content }}
-  </div>
   {{ if or .NextInSection .PrevInSection }}
   <div class="pagination">
     <div class="pagination__title">
